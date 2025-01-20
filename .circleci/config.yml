@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  # Job pour la construction et les tests de l'application Node.js test
+  # Job pour la construction et les tests de l'application Node.js 
   build:
     docker:
       - image: circleci/node:16  # Utilisation de l'image Docker officielle Node.js
