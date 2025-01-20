@@ -22,7 +22,7 @@ jobs:
   # Job pour construire et pousser l'image Docker sur Docker Hub
   dockerize_and_push:
     docker:
-      - image: docker:19.03.12  # Utilisation de l'image Docker officielle pour la gestion des images
+      - image: docker:27.4.0  # Utilisation de l'image Docker officielle pour la gestion des images
     steps:
       - checkout  # Récupère le code du dépôt
       - setup_remote_docker:
