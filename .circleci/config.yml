@@ -4,11 +4,10 @@ jobs:
   # Job pour la construction et les tests de l'application Node.js
   build:
     docker:
-      - image: circleci/node:16  # Utilisation d'une image Docker officielle Node.js
+      - image: circleci/node:16  # Utilisation de l'image Docker officielle Node.js
     steps:
       - checkout  # Récupère le code du dépôt
       - setup_remote_docker:  # Permet l'exécution de Docker sur la machine virtuelle CircleCI
-          version: 20.10.7  # Version de Docker à utiliser
           docker_layer_caching: true  # Active le caching pour accélérer les builds
       - run:
           name: Build Docker Image
@@ -22,11 +21,10 @@ jobs:
   # Job pour construire et pousser l'image Docker sur Docker Hub
   dockerize_and_push:
     docker:
-      - image: docker:27.4.0  # Utilisation de l'image Docker officielle pour la gestion des images
+      - image: docker:latest  # Utilisation de l'image Docker officielle sans version spécifique
     steps:
       - checkout  # Récupère le code du dépôt
       - setup_remote_docker:
-          version: 27.4.0  # Version de Docker à utiliser
           docker_layer_caching: true  # Active le caching pour accélérer les builds
       - run:
           name: Build Docker Image
@@ -49,4 +47,3 @@ workflows:
       - dockerize_and_push:  # Le job pour pousser l'image Docker sur Docker Hub
           requires:
             - build  # Le job de poussée sera exécuté après le succès du job de construction et tests
-
