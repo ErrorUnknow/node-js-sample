@@ -26,7 +26,7 @@ jobs:
     steps:
       - checkout  # Récupère le code du dépôt
       - setup_remote_docker:
-          version: 20.10.7  # Version de Docker à utiliser
+          version: 27.4.0  # Version de Docker à utiliser
           docker_layer_caching: true  # Active le caching pour accélérer les builds
       - run:
           name: Build Docker Image
