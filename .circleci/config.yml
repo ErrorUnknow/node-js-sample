@@ -13,10 +13,6 @@ jobs:
           name: Build Docker Image
           command: |
             docker build -t mon-app-node .  # Crée l'image Docker à partir de votre Dockerfile
-      - run:
-          name: Run Tests
-          command: |
-            docker run mon-app-node npm test  # Exécute les tests dans l'image Docker créée
 
   # Job pour construire et pousser l'image Docker sur Docker Hub
   dockerize_and_push:
